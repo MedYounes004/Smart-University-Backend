@@ -1,0 +1,3 @@
+package tn.smartuniversity.config;
+import org.springframework.boot.CommandLineRunner; import org.springframework.context.annotation.*; import org.springframework.security.crypto.password.PasswordEncoder; import tn.smartuniversity.user.*;
+@Configuration public class DataInitializer { @Bean CommandLineRunner seed(UserRepository users,PasswordEncoder encoder){return args->{if(!users.existsByEmail("admin@smartuniversity.tn")){AppUser u=new AppUser();u.setFirstName("System");u.setLastName("Administrator");u.setEmail("admin@smartuniversity.tn");u.setPassword(encoder.encode("Admin123!"));u.setRole("admin");users.save(u);}};} }

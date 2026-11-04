@@ -1,0 +1,17 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: smart-university-api
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/smart_university}
+  jackson:
+    default-property-inclusion: non_null
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-this-secret-to-a-long-random-string-at-least-32-bytes}
+    expiration-ms: 86400000
+  cors:
+    allowed-origin: ${FRONTEND_ORIGIN:http://localhost:8443}
+
